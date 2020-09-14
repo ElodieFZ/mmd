@@ -3191,7 +3191,7 @@ machine readable form through SKOS files or <a href="https://codes.wmo.int/wmdr"
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Required</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No (see below for details)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Repetition allowed</p></td>
@@ -3202,15 +3202,15 @@ machine readable form through SKOS files or <a href="https://codes.wmo.int/wmdr"
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>A description of how the dataset should be properly cited. If this
 information is not available, a citation string will be generated from the
-metadata available. This element has the following child elements:</p>
+metadata available. MMD elements will be translated to Datacite metadata standard when DOI minting is required. This element has the following child elements:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>author: The name of the organization(s) or individual(s) with primary intellectual responsibility for the data set&#8217;s development. This is a mandatory element and is a comma separated list.</p>
+<p>author: The name of the organization(s) or individual(s) with primary intellectual responsibility for the data set&#8217;s development. This is a mandatory element and is a comma separated list. This field is required for DOI minting for the dataset.</p>
 </li>
 <li>
-<p>publication_date: The publication/reference date for the (cited) resource.</p>
+<p>publication_date: The publication/reference date for the (cited) resource. This field is required for DOI minting for the dataset, in the form YYYY-MM-DD</p>
 </li>
 <li>
 <p>title: The title of the data set, this may be the same as Entry Title or the title of a report or paper.</p>
@@ -3231,28 +3231,20 @@ metadata available. This element has the following child elements:</p>
 <p>publication_place: The name of the city (and state or province and country if needed) where the resource was made available.  This is required if this form is used.</p>
 </li>
 <li>
-<p>publisher: The name of the individual(s) or organization(s) that made the resource available.  This is required if this form is used.</p>
-</li>
-<li>
-<p>pages: The range of pages or total number of pages of a cited resource.</p>
-</li>
-<li>
-<p>isbn: International Standard Book Number (if available).</p>
-</li>
-<li>
-<p>doi: Digital Object Identifier (if available).</p>
-</li>
-<li>
-<p>url: The URL of the online resource containing the cited resource (not necessary if DOI is provided).</p>
-</li>
-<li>
-<p>other: Additional free-text reference information.</p>
+<p>publisher: The name of the individual(s) or organization(s) that made the resource available.  This is required if this form is used. This field is required for DOI minting for the dataset.</p>
 </li>
 </ul>
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* pages: The range of pages or total number of pages of a cited resource.
+* isbn: International Standard Book Number (if available).
+* doi: Digital Object Identifier (if available).
+* url: The URL of the online resource containing the cited resource (not necessary if DOI is provided).
+* other: Additional free-text reference information.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Example XML:</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre>&lt;dataset_citation&gt;
@@ -3276,13 +3268,13 @@ seNorge_2018, daily precipitation, and temperature datasets over Norway
 &lt;/dataset_citation&gt;</pre>
 </div>
 </div></div></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DIF equivalent</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/DIF/Data_Set_Citation</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/DIF/Data_Set_Citation</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ISO equivalent</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>There are no direct equivalent in ISO for this element as a whole, but
 parts can be put into citation information.</p>
@@ -3303,10 +3295,7 @@ parts can be put into citation information.</p>
 <div class="paragraph">
 <p>gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:otherCitationDetails</p>
 </div></div></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MM2 equivalent</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NA</p></td>
 </tr>
 </tbody>
 </table>
@@ -4466,7 +4455,7 @@ data.</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-29 19:41:56 UTC
+Last updated 2020-09-14 08:43:38 UTC
 </div>
 </div>
 </body>
